@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Empleados</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Listado de Empleados</h1>
+    <div class="contenedor">
+        <div class="box">
+            <h2>Empleados activos</h2>
+            <table id="tabla-empleados-activos">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                    </tr>
+                </thead>
+                <tbody id="empleados-activos">
+                </tbody>
+            </table>
+        </div>
+
+        <div class="box">
+            <h2>Empleados inactivos</h2>
+            <table id="tabla-empleados-inactivos">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                    </tr>
+                </thead>
+                <tbody id="empleados-inactivos">
+                </tbody>
+            </table>
+        </div>
+
+        <div class="box">
+            <h2>Listado de empleados</h2>
+            <table id="tabla-empleados">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody id="listado-empleados">
+                </tbody>
+            </table>
+
+            <h2>Agregar Nuevo Empleado</h2>
+            <form id="form-empleados">
+                <input type="text" id="nombre" placeholder="Nombre" required>
+                <input type="text" id="apellido" placeholder="Apellido" required>
+                <select id="estado">
+                    <option value="Activo">Activo</option>
+                    <option value="Inactivo">Inactivo</option>
+                </select>
+                <button type="submit">Agregar Empleado</button>
+            </form>
+
+            <h2>Consumo de API</h2>
+            <button id="api">Consumir API</button>
+            <pre id="resultado-api"></pre>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

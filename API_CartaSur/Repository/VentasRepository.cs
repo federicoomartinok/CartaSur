@@ -17,14 +17,10 @@ namespace API_CartaSur.Repository
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 connection.Open();
-                string query = @"SELECT TOP 1 
-                                Fecha_venta
-                            FROM 
-                                VENTAS
-                            GROUP BY 
-                                Fecha_venta
-                            ORDER BY 
-                                COUNT(*) DESC;";
+                string query = @"SELECT TOP 1 Fecha_venta, COUNT(*) AS Cantidad_ventas
+                                FROM VENTAS
+                                GROUP BY Fecha_venta
+                                ORDER BY Cantidad_ventas DESC;";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {

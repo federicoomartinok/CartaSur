@@ -7,7 +7,7 @@ namespace API_CartaSur.Controllers
     [Route("api/[controller]")]
     public class VentasController(VentasService ventasService) : ControllerBase
     {
-        [HttpGet("FechaMasVentas")]
+        [HttpGet("FechaConMasVentas")]
         public IActionResult GetFechaConMasVentas()
         {
             DateTime fechaMasVentas = ventasService.ObtenerFechaMasVentas();

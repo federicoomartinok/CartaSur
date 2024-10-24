@@ -1,12 +1,17 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using API_CartaSur.Services;
+using Microsoft.AspNetCore.Mvc;
 
 namespace API_CartaSur.Controllers
 {
-    public class VentasController : Controller
+    [ApiController]
+    [Route("api/[controller]")]
+    public class VentasController(VentasService ventasService) : ControllerBase
     {
-        public IActionResult Index()
+        [HttpGet("FechaMasVentas")]
+        public IActionResult GetFechaConMasVentas()
         {
-            return View();
+            DateTime fechaMasVentas = ventasService.ObtenerFechaMasVentas();
+            return Ok(fechaMasVentas);
         }
     }
 }

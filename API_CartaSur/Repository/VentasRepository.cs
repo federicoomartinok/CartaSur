@@ -6,14 +6,9 @@ using API_CartaSur.Models;
 
 namespace API_CartaSur.Repository
 {
-    public class VentasRepository
+    public class VentasRepository(IConfiguration configuration)
     {
-        private readonly string _connectionString;
-
-        public VentasRepository(IConfiguration configuration)
-        {
-            _connectionString = configuration.GetConnectionString("DefaultConnection");
-        }
+        private readonly string? _connectionString = configuration.GetConnectionString("DefaultConnection");
 
         public DateTime ObtenerFechaConMasVentas()
         {
@@ -33,7 +28,7 @@ namespace API_CartaSur.Repository
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    object result = command.ExecuteScalar();
+                    var result = command.ExecuteScalar();
                     if (result != null)
                     {
                         fechaMasVentas = Convert.ToDateTime(result);

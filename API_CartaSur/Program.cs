@@ -1,4 +1,7 @@
 
+using API_CartaSur.Repository;
+using API_CartaSur.Services;
+
 namespace API_CartaSur
 {
     public class Program
@@ -13,6 +16,8 @@ namespace API_CartaSur
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            builder.Services.AddScoped<VentasRepository>();
+            builder.Services.AddScoped<VentasService>();
 
             var app = builder.Build();
 
